@@ -17,19 +17,14 @@ jQuery(($) => {
     data: JSON.stringify({}),
     dataType: 'json',
     success: data => {
-     /*
+      for (let place of data) {
+	$('places').append(`<article>
+	  <div class="title">
 
-      {% for place in places|sort(attribute='name') %}
-
-      <article>
-
-        <div class="title">
-
-          <h2>{{ place.name }}</h2>
-
+          <h2>${ place.name }</h2>
           <div class="price_by_night">
 
-        {{ place.price_by_night }}
+        ${ place.price_by_night }
 
           </div>
         </div>
@@ -39,7 +34,7 @@ jQuery(($) => {
 
         <br />
 
-        {{ place.max_guest }} Guests
+        ${ place.max_guest } Guests
 
           </div>
           <div class="number_rooms">
@@ -47,14 +42,14 @@ jQuery(($) => {
 
         <br />
 
-        {{ place.number_rooms }} Bedrooms
+        ${ place.number_rooms } Bedrooms
           </div>
           <div class="number_bathrooms">
         <i class="fa fa-bath fa-3x" aria-hidden="true"></i>
 
         <br />
 
-        {{ place.number_bathrooms }} Bathroom
+        ${ place.number_bathrooms } Bathroom
 
           </div>
         </div>
@@ -65,8 +60,6 @@ jQuery(($) => {
 
         <div class="user">
 
-          <strong>Owner: {{ users[place.user_id] }}</strong>
-
         </div>
         <div class="description">
 
@@ -74,11 +67,9 @@ jQuery(($) => {
 
         </div>
 
-      </article> <!-- End 1 PLACE Article -->
+      </article>`);
 
-      {% endfor %}```
-     */
-      console.log(data);
+      }
     }
   });
 
